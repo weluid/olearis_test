@@ -2,7 +2,6 @@
 "login": "Login",
 "password": "Password",
 "signIn": "Sign In",
-"continueTitle": "Continue"
-
-
+"continueTitle": "Continue",
+"markupTest": "Markup Test"
 }

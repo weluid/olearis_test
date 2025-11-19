@@ -73,6 +73,11 @@ class S {
   String get continueTitle {
     return Intl.message('Continue', name: 'continueTitle', desc: '', args: []);
   }
+
+  /// `Markup Test`
+  String get markupTest {
+    return Intl.message('Markup Test', name: 'markupTest', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

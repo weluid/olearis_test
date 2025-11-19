@@ -61,7 +61,7 @@ class _LoginPageState extends State<LoginPage> with FullscreenLoaderMixin {
           state.maybeWhen(
             orElse: () => null,
             successLogin: () {
-              context.pushRoute(HomeRoute());
+              context.pushRoute(HomeRoute(items: []));
             },
           );
         },

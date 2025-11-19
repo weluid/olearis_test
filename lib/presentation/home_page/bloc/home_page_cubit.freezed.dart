@@ -55,11 +55,12 @@ extension HomePageStatePatterns on HomePageState {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( _Loading value)?  loading,TResult Function( _Failure value)?  failure,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( _UpdateItems value)?  updateItems,TResult Function( _Loading value)?  loading,TResult Function( _Failure value)?  failure,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
-return initial(_that);case _Loading() when loading != null:
+return initial(_that);case _UpdateItems() when updateItems != null:
+return updateItems(_that);case _Loading() when loading != null:
 return loading(_that);case _Failure() when failure != null:
 return failure(_that);case _:
   return orElse();
@@ -79,11 +80,12 @@ return failure(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( _Loading value)  loading,required TResult Function( _Failure value)  failure,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( _UpdateItems value)  updateItems,required TResult Function( _Loading value)  loading,required TResult Function( _Failure value)  failure,}){
 final _that = this;
 switch (_that) {
 case _Initial():
-return initial(_that);case _Loading():
+return initial(_that);case _UpdateItems():
+return updateItems(_that);case _Loading():
 return loading(_that);case _Failure():
 return failure(_that);case _:
   throw StateError('Unexpected subclass');
@@ -102,11 +104,12 @@ return failure(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( _Loading value)?  loading,TResult? Function( _Failure value)?  failure,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( _UpdateItems value)?  updateItems,TResult? Function( _Loading value)?  loading,TResult? Function( _Failure value)?  failure,}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
-return initial(_that);case _Loading() when loading != null:
+return initial(_that);case _UpdateItems() when updateItems != null:
+return updateItems(_that);case _Loading() when loading != null:
 return loading(_that);case _Failure() when failure != null:
 return failure(_that);case _:
   return null;
@@ -125,10 +128,11 @@ return failure(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  loading,TResult Function( String errorText)?  failure,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function( List<String> items)?  updateItems,TResult Function()?  loading,TResult Function( String errorText)?  failure,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
-return initial();case _Loading() when loading != null:
+return initial();case _UpdateItems() when updateItems != null:
+return updateItems(_that.items);case _Loading() when loading != null:
 return loading();case _Failure() when failure != null:
 return failure(_that.errorText);case _:
   return orElse();
@@ -148,10 +152,11 @@ return failure(_that.errorText);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  loading,required TResult Function( String errorText)  failure,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function( List<String> items)  updateItems,required TResult Function()  loading,required TResult Function( String errorText)  failure,}) {final _that = this;
 switch (_that) {
 case _Initial():
-return initial();case _Loading():
+return initial();case _UpdateItems():
+return updateItems(_that.items);case _Loading():
 return loading();case _Failure():
 return failure(_that.errorText);case _:
   throw StateError('Unexpected subclass');
@@ -170,10 +175,11 @@ return failure(_that.errorText);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  loading,TResult? Function( String errorText)?  failure,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function( List<String> items)?  updateItems,TResult? Function()?  loading,TResult? Function( String errorText)?  failure,}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
-return initial();case _Loading() when loading != null:
+return initial();case _UpdateItems() when updateItems != null:
+return updateItems(_that.items);case _Loading() when loading != null:
 return loading();case _Failure() when failure != null:
 return failure(_that.errorText);case _:
   return null;
@@ -214,6 +220,78 @@ String toString() {
 
 
 
+
+/// @nodoc
+
+
+class _UpdateItems implements HomePageState {
+  const _UpdateItems(final  List<String> items): _items = items;
+  
+
+ final  List<String> _items;
+ List<String> get items {
+  if (_items is EqualUnmodifiableListView) return _items;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_items);
+}
+
+
+/// Create a copy of HomePageState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$UpdateItemsCopyWith<_UpdateItems> get copyWith => __$UpdateItemsCopyWithImpl<_UpdateItems>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UpdateItems&&const DeepCollectionEquality().equals(other._items, _items));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_items));
+
+@override
+String toString() {
+  return 'HomePageState.updateItems(items: $items)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$UpdateItemsCopyWith<$Res> implements $HomePageStateCopyWith<$Res> {
+  factory _$UpdateItemsCopyWith(_UpdateItems value, $Res Function(_UpdateItems) _then) = __$UpdateItemsCopyWithImpl;
+@useResult
+$Res call({
+ List<String> items
+});
+
+
+
+
+}
+/// @nodoc
+class __$UpdateItemsCopyWithImpl<$Res>
+    implements _$UpdateItemsCopyWith<$Res> {
+  __$UpdateItemsCopyWithImpl(this._self, this._then);
+
+  final _UpdateItems _self;
+  final $Res Function(_UpdateItems) _then;
+
+/// Create a copy of HomePageState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? items = null,}) {
+  return _then(_UpdateItems(
+null == items ? _self._items : items // ignore: cast_nullable_to_non_nullable
+as List<String>,
+  ));
+}
+
+
+}
 
 /// @nodoc
 
