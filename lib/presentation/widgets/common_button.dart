@@ -71,20 +71,21 @@ class CommonButton extends StatelessWidget {
     return OutlinedButton(
       onPressed: loading ? null : onPressed,
       style: OutlinedButton.styleFrom(
-        fixedSize: customSize ?? Size.fromHeight(height),
-        surfaceTintColor: Colors.transparent,
+        fixedSize: customSize,
+        minimumSize: Size(0, height),
+        surfaceTintColor: Colors.red,
         side: borderColor != null
             ? BorderSide(color: borderColor!)
             : _isOutlined
-            ? BorderSide(color: colors.primary)
+            ? BorderSide(color: colors.accentColor)
             : null,
         padding: EdgeInsets.zero,
         shadowColor: Colors.transparent,
         shape: border,
         backgroundColor: isDisabled
-            ? colors.primary.withValues(alpha: 0.38)
-            : backgroundColor ?? (_isOutlined ? Colors.transparent : colors.primary),
-        foregroundColor: _isOutlined ? Colors.transparent : textColor,
+            ? colors.inactiveColor.withValues(alpha: 0.6)
+            : backgroundColor ?? (_isOutlined ? Colors.transparent : colors.accentColor),
+        foregroundColor: _isOutlined ? colors.inactiveColor : textColor,
       ),
       child:
           child ??

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'home_page_cubit.dart';
+part of 'login_page_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -12,7 +12,7 @@ part of 'home_page_cubit.dart';
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
-mixin _$HomePageState {
+mixin _$LoginPageState {
 
 
 
@@ -20,7 +20,7 @@ mixin _$HomePageState {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomePageState);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LoginPageState);
 }
 
 
@@ -29,20 +29,20 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'HomePageState()';
+  return 'LoginPageState()';
 }
 
 
 }
 
 /// @nodoc
-class $HomePageStateCopyWith<$Res>  {
-$HomePageStateCopyWith(HomePageState _, $Res Function(HomePageState) __);
+class $LoginPageStateCopyWith<$Res>  {
+$LoginPageStateCopyWith(LoginPageState _, $Res Function(LoginPageState) __);
 }
 
 
-/// Adds pattern-matching-related methods to [HomePageState].
-extension HomePageStatePatterns on HomePageState {
+/// Adds pattern-matching-related methods to [LoginPageState].
+extension LoginPageStatePatterns on LoginPageState {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -55,12 +55,13 @@ extension HomePageStatePatterns on HomePageState {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( _Loading value)?  loading,TResult Function( _Failure value)?  failure,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( _Loading value)?  loading,TResult Function( _SuccessLogin value)?  successLogin,TResult Function( _Failure value)?  failure,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial(_that);case _Loading() when loading != null:
-return loading(_that);case _Failure() when failure != null:
+return loading(_that);case _SuccessLogin() when successLogin != null:
+return successLogin(_that);case _Failure() when failure != null:
 return failure(_that);case _:
   return orElse();
 
@@ -79,12 +80,13 @@ return failure(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( _Loading value)  loading,required TResult Function( _Failure value)  failure,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( _Loading value)  loading,required TResult Function( _SuccessLogin value)  successLogin,required TResult Function( _Failure value)  failure,}){
 final _that = this;
 switch (_that) {
 case _Initial():
 return initial(_that);case _Loading():
-return loading(_that);case _Failure():
+return loading(_that);case _SuccessLogin():
+return successLogin(_that);case _Failure():
 return failure(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -102,12 +104,13 @@ return failure(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( _Loading value)?  loading,TResult? Function( _Failure value)?  failure,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( _Loading value)?  loading,TResult? Function( _SuccessLogin value)?  successLogin,TResult? Function( _Failure value)?  failure,}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial(_that);case _Loading() when loading != null:
-return loading(_that);case _Failure() when failure != null:
+return loading(_that);case _SuccessLogin() when successLogin != null:
+return successLogin(_that);case _Failure() when failure != null:
 return failure(_that);case _:
   return null;
 
@@ -125,11 +128,12 @@ return failure(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  loading,TResult Function( String errorText)?  failure,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  loading,TResult Function()?  successLogin,TResult Function( String errorText)?  failure,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case _Loading() when loading != null:
-return loading();case _Failure() when failure != null:
+return loading();case _SuccessLogin() when successLogin != null:
+return successLogin();case _Failure() when failure != null:
 return failure(_that.errorText);case _:
   return orElse();
 
@@ -148,11 +152,12 @@ return failure(_that.errorText);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  loading,required TResult Function( String errorText)  failure,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  loading,required TResult Function()  successLogin,required TResult Function( String errorText)  failure,}) {final _that = this;
 switch (_that) {
 case _Initial():
 return initial();case _Loading():
-return loading();case _Failure():
+return loading();case _SuccessLogin():
+return successLogin();case _Failure():
 return failure(_that.errorText);case _:
   throw StateError('Unexpected subclass');
 
@@ -170,11 +175,12 @@ return failure(_that.errorText);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  loading,TResult? Function( String errorText)?  failure,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  loading,TResult? Function()?  successLogin,TResult? Function( String errorText)?  failure,}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case _Loading() when loading != null:
-return loading();case _Failure() when failure != null:
+return loading();case _SuccessLogin() when successLogin != null:
+return successLogin();case _Failure() when failure != null:
 return failure(_that.errorText);case _:
   return null;
 
@@ -186,7 +192,7 @@ return failure(_that.errorText);case _:
 /// @nodoc
 
 
-class _Initial implements HomePageState {
+class _Initial implements LoginPageState {
   const _Initial();
   
 
@@ -206,7 +212,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'HomePageState.initial()';
+  return 'LoginPageState.initial()';
 }
 
 
@@ -218,7 +224,7 @@ String toString() {
 /// @nodoc
 
 
-class _Loading implements HomePageState {
+class _Loading implements LoginPageState {
   const _Loading();
   
 
@@ -238,7 +244,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'HomePageState.loading()';
+  return 'LoginPageState.loading()';
 }
 
 
@@ -250,13 +256,45 @@ String toString() {
 /// @nodoc
 
 
-class _Failure implements HomePageState {
+class _SuccessLogin implements LoginPageState {
+  const _SuccessLogin();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SuccessLogin);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'LoginPageState.successLogin()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class _Failure implements LoginPageState {
   const _Failure(this.errorText);
   
 
  final  String errorText;
 
-/// Create a copy of HomePageState
+/// Create a copy of LoginPageState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
@@ -275,14 +313,14 @@ int get hashCode => Object.hash(runtimeType,errorText);
 
 @override
 String toString() {
-  return 'HomePageState.failure(errorText: $errorText)';
+  return 'LoginPageState.failure(errorText: $errorText)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$FailureCopyWith<$Res> implements $HomePageStateCopyWith<$Res> {
+abstract mixin class _$FailureCopyWith<$Res> implements $LoginPageStateCopyWith<$Res> {
   factory _$FailureCopyWith(_Failure value, $Res Function(_Failure) _then) = __$FailureCopyWithImpl;
 @useResult
 $Res call({
@@ -301,7 +339,7 @@ class __$FailureCopyWithImpl<$Res>
   final _Failure _self;
   final $Res Function(_Failure) _then;
 
-/// Create a copy of HomePageState
+/// Create a copy of LoginPageState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? errorText = null,}) {
   return _then(_Failure(

@@ -6,7 +6,5 @@ class HomePageState with _$HomePageState {
 
   const factory HomePageState.loading() = _Loading;
 
-  const factory HomePageState.currentVerses() = _CurrentVerses;
-
   const factory HomePageState.failure(String errorText) = _Failure;
 }

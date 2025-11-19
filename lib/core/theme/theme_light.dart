@@ -5,7 +5,7 @@ class ThemeLight {
   static final AppColor _colors = AppColorLight();
 
   static ThemeData light = ThemeData(
-    splashColor: _colors.primary,
+    splashColor: _colors.accentColor,
     textTheme: _textTheme(),
 
     outlinedButtonTheme: _outLinedButtonTheme(),
@@ -38,12 +38,12 @@ class ThemeLight {
   static OutlinedButtonThemeData _outLinedButtonTheme() {
     return OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
-        backgroundColor: _colors.primary,
-        disabledBackgroundColor: _colors.primary.withValues(alpha: 0.38),
+        backgroundColor: _colors.accentColor,
+        disabledBackgroundColor: _colors.inactiveColor,
         elevation: 0,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
         side: const BorderSide(color: Colors.transparent),
-        textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.white),
+        textStyle: const TextStyle(fontSize: 10, fontWeight: FontWeight.w600, color: Colors.white),
       ),
     );
   }
@@ -68,11 +68,18 @@ class ThemeLight {
     return InputDecorationTheme(
       hintStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: _colors.text),
       contentPadding: const EdgeInsets.symmetric(horizontal: 0),
-
       enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
       focusedBorder: UnderlineInputBorder(
         borderSide: BorderSide(color: _colors.accentColor, width: 2),
       ),
+      labelStyle: TextStyle(color: Colors.grey, fontSize: 14, fontWeight: FontWeight.w600),
+      floatingLabelStyle: TextStyle(
+        color: _colors.accentColor,
+        fontSize: 12,
+        fontWeight: FontWeight.w400,
+      ),
+      filled: false,
+      fillColor: Colors.transparent,
     );
   }
 

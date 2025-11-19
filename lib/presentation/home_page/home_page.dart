@@ -16,10 +16,13 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomePageCubit, HomePageState>(
-      builder: (context, state) {
-        return Scaffold(appBar: CommonAppBar(textTitle: "Markup Test"));
-      },
+    return BlocProvider(
+      create: (context) => HomePageCubit(),
+      child: BlocBuilder<HomePageCubit, HomePageState>(
+        builder: (context, state) {
+          return Scaffold(appBar: CommonAppBar(textTitle: "Markup Test"));
+        },
+      ),
     );
   }
 }

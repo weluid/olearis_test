@@ -10,8 +10,9 @@ class AudioPlayerRepositoryImpl extends LoginRepository {
   final Dio _dio;
 
   @override
-  Future<ResponseImp<void>> login({required String login, required String password}) {
-    // TODO: implement login
-    throw UnimplementedError();
+  Future<ResponseImp<bool>> login({required String login, required String password}) async {
+    return Future.delayed(Duration(seconds: 2)).then((_) {
+    return  ResponseImp.success(result: true);
+    });
   }
 }

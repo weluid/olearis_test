@@ -2,12 +2,16 @@ import 'package:olearistest/core/extentions/context_extentions.dart';
 import 'package:flutter/material.dart';
 
 class CommonCircularIndicator extends StatelessWidget {
-  const CommonCircularIndicator({super.key});
+  const CommonCircularIndicator({super.key, this.size});
+
+  final double? size;
 
   @override
   Widget build(BuildContext context) {
-    return CircularProgressIndicator.adaptive(
-      valueColor: AlwaysStoppedAnimation<Color>(context.colors.primary),
+    return SizedBox(
+      height: size ?? 20,
+      width: size ?? 20,
+      child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2),
     );
   }
 }

@@ -1,4 +1,8 @@
 {
-"goodMorning": "Good morning"
+"login": "Login",
+"password": "Password",
+"signIn": "Sign In",
+"continueTitle": "Continue"
+
 
 }

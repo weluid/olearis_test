@@ -13,6 +13,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.elevation = false,
     this.actionsVisible = true,
     this.onPressed,
+    this.centerTitle = true,
   });
 
   final String? textTitle;
@@ -22,6 +23,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool elevation;
   final VoidCallback? onPressed;
   final bool actionsVisible;
+  final bool centerTitle;
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -39,7 +41,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       surfaceTintColor: Colors.transparent,
-      centerTitle: true,
+      centerTitle: centerTitle,
       backgroundColor: colors.accentColor,
       leading:context.router.canPop() ?  leading ??
           IconButton(

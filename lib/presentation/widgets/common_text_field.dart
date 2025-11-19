@@ -2,7 +2,6 @@ import 'package:olearistest/core/extentions/context_extentions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-
 class CommonTextField extends StatelessWidget {
   const CommonTextField.primary({
     super.key,
@@ -25,14 +24,13 @@ class CommonTextField extends StatelessWidget {
     this.helperText,
     this.prefix,
     this.fillColor,
-  })  : onObscure = null,
-        initialValue = null,
-        padding = null,
-        phoneField = false,
-        maxLines = 1,
-        minLines = 1,
-        keyboardType = null;
-
+  }) : onObscure = null,
+       initialValue = null,
+       padding = null,
+       phoneField = false,
+       maxLines = 1,
+       minLines = 1,
+       keyboardType = null;
 
   final String? label;
   final String? hint;
@@ -67,9 +65,7 @@ class CommonTextField extends StatelessWidget {
     final typography = context.typography;
     final errorBorder = OutlineInputBorder(
       borderRadius: BorderRadius.circular(12),
-      borderSide: BorderSide(
-        color: colors.errorColor,
-      ),
+      borderSide: BorderSide(color: colors.errorColor),
     );
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -78,14 +74,10 @@ class CommonTextField extends StatelessWidget {
           visible: title != null,
           child: Padding(
             padding: const EdgeInsets.only(bottom: 4),
-            child: Text(
-              title ?? '',
-              style: typography.bodyLarge?.copyWith(color: colors.text),
-            ),
+            child: Text(title ?? '', style: typography.bodyLarge?.copyWith(color: colors.text)),
           ),
         ),
         TextFormField(
-
           autovalidateMode: AutovalidateMode.onUserInteraction,
           readOnly: readOnly,
           initialValue: initialValue,
@@ -100,25 +92,26 @@ class CommonTextField extends StatelessWidget {
           cursorColor: colors.accentColor,
           obscureText: obscureText,
           validator: validator,
-          onTapOutside: (_) => FocusScope.of(context).unfocus(),
+          // onTapOutside: (_) => FocusScope.of(context).unfocus(),
           maxLength: maxLength,
           keyboardType: keyboardType,
           inputFormatters: inputFormatters,
           textCapitalization: TextCapitalization.sentences,
           obscuringCharacter: '•',
           decoration: InputDecoration(
+            label: label != null ? Text(label!) : null,
             counterText: '',
             constraints: constraints,
             contentPadding: padding,
             hintText: hint,
             helperText: helperText,
-            prefixIcon:  prefix,
+            prefixIcon: prefix,
             hintStyle: typography.bodyLarge?.copyWith(color: colors.text),
             suffixIcon: suffix,
             border: errorText != null ? errorBorder : null,
             enabledBorder: errorText != null ? errorBorder : null,
             focusedBorder: errorText != null ? errorBorder : null,
-            fillColor: fillColor ?? Colors.white,
+            fillColor: fillColor,
             filled: true,
           ),
         ),
@@ -135,5 +128,4 @@ class CommonTextField extends StatelessWidget {
       ],
     );
   }
-
 }
