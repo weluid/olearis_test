@@ -14,6 +14,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.actionsVisible = true,
     this.onPressed,
     this.centerTitle = true,
+    this.showBackButton = true,
   });
 
   final String? textTitle;
@@ -24,6 +25,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback? onPressed;
   final bool actionsVisible;
   final bool centerTitle;
+  final bool showBackButton;
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -33,38 +35,36 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
     final colors = context.colors;
     return AppBar(
       automaticallyImplyLeading: false,
-      title: titleWidget ?? Visibility(
-        visible: textTitle != null,
-        child: Text(
-          textTitle ?? '',
-          style: context.typography.headlineSmall?.copyWith(color: Colors.white),
-        ),
-      ),
+      title:
+          titleWidget ??
+          Visibility(
+            visible: textTitle != null,
+            child: Text(
+              textTitle ?? '',
+              style: context.typography.headlineSmall?.copyWith(color: Colors.white),
+            ),
+          ),
       surfaceTintColor: Colors.transparent,
       centerTitle: centerTitle,
       backgroundColor: colors.accentColor,
-      leading:context.router.canPop() ?  leading ??
-          IconButton(
-            onPressed: onPressed ?? () => context.router.maybePop(),
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            icon: Assets.icons.arrowLeft.svg(
-              width: 34,
-              height: 34,
-              colorFilter: ColorFilter.mode(
-                Colors.white,
-                BlendMode.srcIn,
-              ),
-            ),
-            splashRadius: 16,
-          ) : SizedBox.shrink(),
+      leading: showBackButton
+          ? leading ??
+                IconButton(
+                  onPressed: onPressed ?? () => context.router.maybePop(),
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  icon: Assets.icons.arrowLeft.svg(
+                    width: 34,
+                    height: 34,
+                    colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                  ),
+                  splashRadius: 16,
+                )
+          : SizedBox.shrink(),
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(1),
         child: Visibility(
           visible: elevation,
-          child: Divider(
-            color: colors.borderColor,
-            height: 0,
-          ),
+          child: Divider(color: colors.borderColor, height: 0),
         ),
       ),
       leadingWidth: 56,

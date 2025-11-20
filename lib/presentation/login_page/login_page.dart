@@ -70,7 +70,7 @@ class _LoginPageState extends State<LoginPage> with FullscreenLoaderMixin {
 
           return Scaffold(
             resizeToAvoidBottomInset: true,
-            appBar: CommonAppBar(textTitle: l10n.signIn),
+            appBar: CommonAppBar(textTitle: l10n.signIn, showBackButton: false),
             body: SafeArea(
               child: LayoutBuilder(
                 builder: (context, constraints) {
