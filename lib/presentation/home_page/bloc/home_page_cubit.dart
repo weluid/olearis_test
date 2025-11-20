@@ -13,18 +13,15 @@ class HomePageCubit extends Cubit<HomePageState> {
   List<String> get items => _items;
 
   void addItem() {
-    emit(HomePageState.loading());
-    final index = items.length;
+    final index = _items.length;
     _items.add('Item $index');
-    emit(HomePageState.updateItems(_items));
+    emit(HomePageState.updateItems(List.unmodifiable(_items)));
   }
 
   void removeItem() {
-    emit(HomePageState.loading());
-
     if (_items.isNotEmpty) {
       _items.removeLast();
-      emit(HomePageState.updateItems(_items));
+      emit(HomePageState.updateItems(List.unmodifiable(_items)));
     }
   }
 }

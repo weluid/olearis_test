@@ -8,8 +8,6 @@ import 'package:olearistest/presentation/home_page/widgets/logo_with_border.dart
 import 'package:olearistest/presentation/widgets/common_appbar.dart';
 import 'bloc/home_page_cubit.dart';
 
-
-
 @RoutePage()
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.items});
@@ -70,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                       ? 0
                       : rows * tileHeight + (rows - 1) * spacing + (spacing * 2);
 
-                  final freeSpace = constraints.maxHeight - gridHeight - (spacing * 2);
+                  final freeSpace = constraints.maxHeight - gridHeight - (spacing * 3);
 
                   final logoHeight = (logoSize * 0.42); // logo aspect ratio based on size
                   final totalContentHeight =
